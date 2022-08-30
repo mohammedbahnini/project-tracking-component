@@ -1,0 +1,104 @@
+@use "vars" as *;
+@use "mixins" as *;
+
+nav {
+  padding-top: 3.5rem;
+  margin-bottom: 9rem;
+  position: relative;
+
+  @include sm-and-down {
+    padding-top: 2rem;
+    margin: 0;
+    margin-bottom: 3.5rem;
+  }
+}
+
+ul {
+  gap: 2.5rem;
+  @include sm-and-down {
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    z-index: 99;
+    width: 100%;
+    text-align: center;
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+    top: 5rem;
+    box-shadow: 0 0 18px 0px rgba(black, 0.3);
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: right top;
+    transition: 0.1s linear;
+    &.open {
+      transform: scale(1);
+    }
+  }
+}
+li a {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width $transition-timing;
+  }
+  &.blue-1::before {
+    background-color: $blue-1;
+  }
+  &.blue-2::before {
+    background-color: $blue-2;
+  }
+  &.blue-3::before {
+    background-color: $blue-3;
+  }
+  &.blue-4::before {
+    background-color: $blue-4;
+  }
+  &.red::before {
+    background-color: $red;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.menu-hamberger {
+  display: none;
+  @include sm-and-down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    align-self: start;
+    gap: 5px;
+    cursor: pointer;
+    .bar {
+      height: 3px;
+      background-color: $blue-4;
+      border-radius: 3px;
+      transition: 0.1s linear;
+      transform-origin: center left;
+    }
+    &.open {
+      aspect-ratio: 1;
+      .bar:nth-child(2) {
+        display: none;
+      }
+      .bar:nth-child(1),
+      .bar:nth-child(3) {
+        width: 31px;
+      }
+      .bar:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      .bar:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+@use "vars" as *;
+@use "mixins" as *;
+
+.intro {
+  @include sm-and-down {
+    flex-direction: column-reverse;
+  }
+
+  .content {
+    width: 50%;
+    @include sm-and-down {
+      width: 100%;
+    }
+    @include sm-and-down {
+      width: 100%;
+      padding-top: 3.5rem;
+      padding-right: 0;
+    }
+    padding-right: 3rem;
+    .title {
+      letter-spacing: 0.35rem;
+      margin-bottom: 2rem;
+      animation: show-content 1s ease-out;
+      @include sm-and-down {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      .rounded {
+        display: inline-block;
+        border-radius: 25px;
+        padding: 3px 10px;
+        letter-spacing: 2px;
+      }
+    }
+
+    .sub-title {
+      font-size: 3.4rem;
+      line-height: 1;
+      margin-bottom: 2rem;
+      transform: translateY(-50px);
+      opacity: 0;
+      animation: show-content 1s ease-out 0.3s forwards;
+      @include lg-and-down {
+        font-size: 3rem;
+      }
+      @include sm-and-down {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .text {
+      font-size: 1.125rem;
+      max-width: 17rem;
+      line-height: 1.5;
+      margin-bottom: 4.5rem;
+      transform: translateY(-50px);
+      opacity: 0;
+      animation: show-content 1s ease-out 0.6s forwards;
+      @include lg-and-down {
+        font-size: 1.05rem;
+        margin-bottom: 3rem;
+      }
+      @include sm-and-down {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .actions {
+      transform: translateY(-50px);
+      opacity: 0;
+      animation: show-content 1s ease-out 0.8s forwards;
+      @include lg-and-down {
+        flex-direction: column;
+        text-align: center;
+      }
+      @include sm-and-down {
+        gap: 1rem;
+      }
+      .btn {
+        letter-spacing: 2px;
+        border-radius: 5px;
+        padding: 15px 30px;
+        transition: background-color $transition-timing;
+        @include sm-and-down {
+          font-size: 1rem;
+          padding: 10px 15px;
+          flex: 1;
+        }
+        &.bg-red:hover {
+          background-color: lighten($red, 6%);
+        }
+
+        &.transparent {
+          letter-spacing: 4px;
+        }
+      }
+    }
+  }
+
+  .illustration {
+    width: 50%;
+    position: relative;
+    transform: translateX(150px);
+    opacity: 0;
+    animation: show-illustration 1s ease-out forwards;
+    @include sm-and-down {
+      width: 100%;
+    }
+    img {
+      //position: absolute;
+      //left: 2rem;
+      //top: -3rem;
+      transform: translateX(1rem) translateY(-4rem);
+      width: 187%;
+      //transform: translateX(13rem) translateY(2.5rem) scale(1.75);
+      @include sm-and-down {
+        width: 160%;
+        transform: translateX(-4.5%) translateY(0);
+      }
+    }
+  }
+}
+
+@keyframes show-content {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes show-illustration {
+  from {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

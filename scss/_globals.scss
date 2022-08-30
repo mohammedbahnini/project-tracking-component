@@ -1,0 +1,104 @@
+@use "vars" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+html {
+  font-size: 18px;
+}
+body {
+  font-family: $ff-1;
+
+  overflow-x: hidden;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.container {
+  max-width: calc(1110px + (2 * $container-padding));
+  padding-inline: $container-padding;
+  margin: 0 auto;
+  
+}
+// text colors
+.blue-1 {
+  color: $blue-1;
+}
+.blue-2 {
+  color: $blue-2;
+}
+.blue-3 {
+  color: $blue-3;
+}
+.blue-4 {
+  color: $blue-4;
+}
+.red {
+  color: $red;
+}
+.white {
+  color: white;
+}
+
+// backgounds
+.bg-blue-1 {
+  background-color: $blue-1;
+}
+.bg-blue-2 {
+  background-color: $blue-2;
+}
+
+.bg-blue-3 {
+  background-color: $blue-3;
+}
+
+.bg-blue-4 {
+  background-color: $blue-4;
+}
+
+.bg-red {
+  background-color: $red;
+}
+
+// typo
+.ff-1 {
+  font-family: $ff-1;
+}
+.ff-2 {
+  font-family: $ff-2;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+@for $i from 1 through 7 {
+  .fw-#{$i*100} {
+    font-weight: #{$i * 100};
+  }
+}
+// dislay
+.flex {
+  display: flex;
+}
+.ai-center {
+  align-items: center;
+}
+.jc-center {
+  justify-content: center;
+}
+.jc-sb {
+  justify-content: space-between;
+}

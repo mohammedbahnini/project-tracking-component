@@ -5,7 +5,6 @@
 header {
   position: relative;
   overflow: hidden;
-  padding-bottom: 15rem;
   @include sm-and-down {
     padding-bottom: 3rem;
   }

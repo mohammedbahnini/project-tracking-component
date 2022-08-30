@@ -150,7 +150,6 @@ img {
 header {
   position: relative;
   overflow: hidden;
-  padding-bottom: 15rem;
 }
 @media screen and (max-width: 768px) {
   header {
